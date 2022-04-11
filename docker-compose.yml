@@ -11,6 +11,8 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL=mariadb+pymysql://root:Dev@127.0.0.1:3306/root?charset=utf8mb4
     ports:
       - "8080:8080"
 
