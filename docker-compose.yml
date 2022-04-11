@@ -1,0 +1,18 @@
+services:
+  database:
+    image: mariadb:10.7.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=Dev
+    ports:
+      - "3306:3306"
+
+  back:
+    image: movies-api:0.0.1
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+    volumes:
+
