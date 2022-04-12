@@ -1,11 +1,17 @@
-import datetime
 from pydantic import BaseModel
 
-class Movie(BaseModel):
-    id: int
+
+class MovieCreate(BaseModel):
     name: str
-    publication_date: datetime.date()
+    publication_year: int
     description: str
+
+    class Config:
+        orm_mode = True
+
+
+class Movie(MovieCreate):
+    id: int
 
     class Config:
         orm_mode = True

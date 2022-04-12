@@ -7,12 +7,15 @@ services:
       - "3306:3306"
 
   back:
-    image: movies-api:0.0.1
+    image: movies-api:0.0.2
+    depends_on:
+      - database
     build:
       context: ./
       dockerfile: Dockerfile
     environment:
-      - DATABASE_URL=mariadb+pymysql://root:Dev@127.0.0.1:3306/root?charset=utf8mb4
+      - DATABASE_URL=mysql+pymysql://root:Dev@database:3306/movies_api?charset=utf8mb4
+      - MARIADB_DATABASE=movies-api
     ports:
       - "8080:8080"
 

@@ -1,6 +1,8 @@
-from sqlalchemy import String, Column, Integrer, Date
+from sqlalchemy import Column
+from sqlalchemy.types import String, Integer, Date
 
-from .sql_connection import Base
+from api.database.sql_connection import Base
+
 
 class Movie(Base):
     """"
@@ -8,7 +10,7 @@ class Movie(Base):
     """
     __tablename__ = "movies"
 
-    id = Column(Integrer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    publication_date = Column(Date, index=True)
-    description = Column(String)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(100), index=True)
+    publication_year = Column(Integer, index=True)
+    description = Column(String(1000))
