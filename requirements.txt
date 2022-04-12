@@ -2,3 +2,4 @@ fastapi==0.75.1
 uvicorn==0.17.1
 sqlalchemy==1.4.35
 pymysql==1.0.2
+pydantic==1.9.0
