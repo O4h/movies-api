@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 from typing import List
 
 from api.database import models, crud, schemas
-from api.database.sql_connection import engine, SessionLocal
+from api.database.sql_connection import engine, SessionLocal, Base
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
