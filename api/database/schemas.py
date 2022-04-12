@@ -6,9 +6,6 @@ class MovieCreate(BaseModel):
     publication_year: int
     description: str
 
-    class Config:
-        orm_mode = True
-
 
 class Movie(MovieCreate):
     id: int
